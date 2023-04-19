@@ -8,3 +8,14 @@ class CourseCard extends StatelessWidget {
     return Container();
   }
 }
+
+Widget buildCard(int index) => Container(
+      decoration: BoxDecoration(
+        borderRadius: BorderRadius.circular(15),
+        color: Colors.blueAccent,
+      ),
+      width: 180,
+      child: Center(
+        child: Text("$index"),
+      ),
+    );
