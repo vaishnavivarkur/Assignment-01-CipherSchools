@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:carousel_slider/carousel_slider.dart';
+import 'package:cipherschools/constants.dart';
 
 class CoursesScreen extends StatefulWidget {
   const CoursesScreen({Key? key}) : super(key: key);
@@ -22,7 +23,7 @@ class _CoursesScreenState extends State<CoursesScreen> {
       appBar: AppBar(
         title: const Text(
           "Cipher Schools",
-          style: TextStyle(color: Colors.black, fontWeight: FontWeight.w600),
+          style: kTitleTextStyle,
         ),
         backgroundColor: Colors.orangeAccent,
       ),
@@ -90,9 +91,7 @@ class _CoursesScreenState extends State<CoursesScreen> {
             padding: EdgeInsets.only(top: 16.0),
             child: Text(
               "Recommended Courses",
-              style: TextStyle(
-                fontWeight: FontWeight.bold,
-              ),
+              style: kTitleTextStyle,
             ),
           ),
           SizedBox(
@@ -107,13 +106,13 @@ class _CoursesScreenState extends State<CoursesScreen> {
               padding: const EdgeInsets.all(15),
               itemCount: 10,
               itemBuilder: (context, index) {
-                return buildCard(index);
+                return buildCard();
               },
             ),
           ),
           const Text(
             "Latest Videos",
-            style: TextStyle(fontWeight: FontWeight.bold),
+            style: kTitleTextStyle,
           ),
           SizedBox(
             height: 250,
@@ -127,11 +126,14 @@ class _CoursesScreenState extends State<CoursesScreen> {
               padding: const EdgeInsets.all(15),
               itemCount: 10,
               itemBuilder: (context, index) {
-                return buildCard(index);
+                return buildCard();
               },
             ),
           ),
-          const Text("Popular categories"),
+          const Text(
+            "Popular categories",
+            style: kTitleTextStyle,
+          ),
           SizedBox(
             height: 180,
             child: ListView.separated(
@@ -144,24 +146,53 @@ class _CoursesScreenState extends State<CoursesScreen> {
               padding: const EdgeInsets.all(15),
               itemCount: 10,
               itemBuilder: (context, index) {
-                return buildCard(index);
+                return buildCard();
               },
             ),
           ),
-          const Text("All courses"),
+          const Text(
+            "All courses",
+            style: kTitleTextStyle,
+          ),
+          GridView.count(
+            mainAxisSpacing: 15,
+            crossAxisSpacing: 15,
+            padding: const EdgeInsets.all(15),
+            crossAxisCount: 2,
+            physics:
+                const NeverScrollableScrollPhysics(), // to disable GridView's scrolling
+            shrinkWrap: true, // You won't see infinite size error
+            children: <Widget>[
+              buildCard(),
+              buildCard(),
+              buildCard(),
+              buildCard(),
+              buildCard(),
+              buildCard(),
+            ],
+          )
         ],
       ),
     );
   }
 
-  Widget buildCard(int index) => Container(
+  Widget buildCard() => Container(
+        margin: const EdgeInsets.only(
+          left: 5,
+          top: 10,
+          bottom: 10,
+        ),
+        width: MediaQuery.of(context).size.width * 0.4,
         decoration: BoxDecoration(
+          boxShadow: const [
+            BoxShadow(
+              offset: Offset(0, 10),
+              blurRadius: 50,
+              color: Colors.white60,
+            ),
+          ],
           borderRadius: BorderRadius.circular(15),
           color: Colors.blueAccent,
-        ),
-        width: 180,
-        child: Column(
-          children: [],
         ),
       );
 }
