@@ -12,9 +12,7 @@ class NavBar extends StatefulWidget {
 class _NavBarState extends State<NavBar> {
   int index = 0;
   final screens = const [
-    Center(
-      child: Text("home page"),
-    ),
+    HomePageScreen(),
     CoursesScreen(),
     // Center(
     //   child: Text("courses page"),

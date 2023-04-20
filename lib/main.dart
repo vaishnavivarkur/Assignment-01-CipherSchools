@@ -1,3 +1,4 @@
+import 'package:cipherschools/components/navbar.dart';
 import 'package:flutter/material.dart';
 import 'screens/home_screen.dart';
 
@@ -11,11 +12,11 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Flutter Demo',
+      title: 'Cipher Schools',
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: const HomePageScreen(),
+      home: const NavBar(),
     );
   }
 }
