@@ -95,7 +95,7 @@ class _CoursesScreenState extends State<CoursesScreen> {
             ),
           ),
           SizedBox(
-            height: 250,
+            height: MediaQuery.of(context).size.width * 0.6,
             child: ListView.separated(
               separatorBuilder: (BuildContext context, int index) {
                 return const SizedBox(
@@ -115,7 +115,7 @@ class _CoursesScreenState extends State<CoursesScreen> {
             style: kTitleTextStyle,
           ),
           SizedBox(
-            height: 250,
+            height: MediaQuery.of(context).size.width * 0.6,
             child: ListView.separated(
               separatorBuilder: (BuildContext context, int index) {
                 return const SizedBox(
@@ -135,7 +135,7 @@ class _CoursesScreenState extends State<CoursesScreen> {
             style: kTitleTextStyle,
           ),
           SizedBox(
-            height: 180,
+            height: MediaQuery.of(context).size.width * 0.5,
             child: ListView.separated(
               separatorBuilder: (BuildContext context, int index) {
                 return const SizedBox(
@@ -184,15 +184,29 @@ class _CoursesScreenState extends State<CoursesScreen> {
         ),
         width: MediaQuery.of(context).size.width * 0.4,
         decoration: BoxDecoration(
-          boxShadow: const [
+          boxShadow: [
             BoxShadow(
-              offset: Offset(0, 10),
-              blurRadius: 50,
-              color: Colors.white60,
+              color: Colors.grey.withOpacity(0.5),
+              offset: Offset(0, 3),
+              spreadRadius: 3,
+              blurRadius: 10,
             ),
           ],
           borderRadius: BorderRadius.circular(15),
-          color: Colors.blueAccent,
+          color: Colors.white,
+        ),
+        child: Column(
+          children: [
+            Container(
+              child: Image.asset(
+                "images/banner.png",
+                height: MediaQuery.of(context).size.width * 0.2,
+              ),
+            ),
+            Text(
+              "Name of the specific course",
+            )
+          ],
         ),
       );
 }
