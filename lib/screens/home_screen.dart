@@ -160,6 +160,7 @@ class _HomePageScreenState extends State<HomePageScreen> {
           top: 10,
           bottom: 10,
         ),
+        height: MediaQuery.of(context).size.width * 0.4,
         width: MediaQuery.of(context).size.width * 0.4,
         decoration: BoxDecoration(
           boxShadow: const [
